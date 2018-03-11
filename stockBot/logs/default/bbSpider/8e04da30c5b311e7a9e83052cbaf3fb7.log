@@ -1,0 +1,22 @@
+2017-11-09 20:07:45 [scrapy.utils.log] INFO: Scrapy 1.4.0 started (bot: stockBot)
+2017-11-09 20:07:45 [scrapy.utils.log] INFO: Overridden settings: {'NEWSPIDER_MODULE': 'stockBot.spiders', 'ROBOTSTXT_OBEY': True, 'SPIDER_MODULES': ['stockBot.spiders'], 'LOG_FILE': 'logs\\default\\bbSpider\\8e04da30c5b311e7a9e83052cbaf3fb7.log', 'BOT_NAME': 'stockBot'}
+2017-11-09 20:07:46 [scrapy.middleware] INFO: Enabled extensions:
+['scrapy.extensions.logstats.LogStats',
+ 'scrapy.extensions.telnet.TelnetConsole',
+ 'scrapy.extensions.corestats.CoreStats']
+2017-11-09 20:07:46 [twisted] CRITICAL: Unhandled error in Deferred:
+2017-11-09 20:07:46 [twisted] CRITICAL: 
+Traceback (most recent call last):
+  File "c:\users\owner\documents\codingdojo\python\django\django-venv\lib\site-packages\twisted\internet\defer.py", line 1386, in _inlineCallbacks
+    result = g.send(result)
+  File "c:\users\owner\documents\codingdojo\python\django\django-venv\lib\site-packages\scrapy\crawler.py", line 95, in crawl
+    six.reraise(*exc_info)
+  File "c:\users\owner\documents\codingdojo\python\django\django-venv\lib\site-packages\scrapy\crawler.py", line 76, in crawl
+    self.spider = self._create_spider(*args, **kwargs)
+  File "c:\users\owner\documents\codingdojo\python\django\django-venv\lib\site-packages\scrapy\crawler.py", line 99, in _create_spider
+    return self.spidercls.from_crawler(self, *args, **kwargs)
+  File "c:\users\owner\documents\codingdojo\python\django\django-venv\lib\site-packages\scrapy\spiders\__init__.py", line 51, in from_crawler
+    spider = cls(*args, **kwargs)
+  File "stockBot\spiders\bloomberg.py", line 12, in __init__
+    if not stock:
+NameError: global name 'stock' is not defined

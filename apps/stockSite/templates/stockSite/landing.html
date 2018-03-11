@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>StockCrawl</title>
+    {% load static %}
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script type="text/javascript" src="{% static 'jquery.flot.js' %}"></script>
+    <script type="text/javascript" src="{% static 'jquery.flot.time.js' %}"></script>
+    <script type="text/javascript" src="{% static 'jquery.flot.symbol.js' %}"></script>
+    <script type="text/javascript" src="{% static 'jquery.flot.axislabels.js' %}"></script>
+    <script type="text/javascript">
+      $(document).ready(
+        function(){
+          //var dowurl="c";
+            $.ajax({
+              url:"https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&symbol=DJI&outputsize=compact&apikey=TJ86LY8QFCFMQ44Z&datatype=json&interval=15min",
+              method:'get',
+              success:function(response){
+                //console.log(response);
+                console.log(response["Time Series (15min)"])
+                var timeArray=[]
+                var priceArray=[]
+                var dataArray=[]
+                var datesObj=response["Time Series (15min)"]
+                for (var key in datesObj){
+                  five_hours=3600*1000*5
+                  dataArray.push([new Date(key).getTime()-five_hours,parseFloat(datesObj[key]["1. open"])])
+                }
+                console.log(dataArray)
+                //https://stackoverflow.com/questions/7204232/flot-show-time-axis-without-gaps
+
+                console.log(dataArray)
+                var dataSet=[{label:"Dow",data:dataArray}]
+                var options={
+                  series:{lines:{show:true}},
+                  xaxis:{mode:"time", twelveHourClock:true},
+                  hoverable:true,
+                  clickable:true,
+                   colors: ["#FF0000", "#0022FF"]
+                  }
+                $.plot($("#dowPlot"),dataSet,options);  //add options arg??
+              }
+            });
+
+        } )// end script
+    </script>
+
+
+
+  </head>
+  <body>
+<a href="{% url 'search' %}" >Search  </a>
+
+<img src="{% static 'test.jpg' %}" alt="pic">
+
+    <p>Search and ananlyze financial news outlets for articles relating to any stock on the market!</p>
+    <form action="crawl" method="post">
+       {% csrf_token %}
+      <label for="stock">Stock: <input type="text" name="stock"></label>
+      <input type="submit">
+    </form>
+
+    {% load static %}
+
+    {% block content %}
+    <div>
+        <form action="search/" method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <input type="submit" />
+        </form>
+    </div>
+    {% endblock %}
+
+    {% block footer %}
+
+    {{ form.media }}
+    {% endblock %}
+
+    <div id="dowPlot" style="width:900px; height:750px; border:1px solid black">
+
+    </div>
+
+  </body>
+</html>

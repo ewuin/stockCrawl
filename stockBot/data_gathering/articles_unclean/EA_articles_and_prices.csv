@@ -1,0 +1,581 @@
+,postDate,headline,articleHTML,Unnamed: 0,date,ticker,daily_change
+0,2017-01-31,Electronic Arts full-year revenue outlook in line  ,Earnings are out for Electronic Arts. CNBC's Julia Boorstin reports the details.Earnings are out for Electronic Arts. CNBC's Julia Boorstin reports the details.Earnings are out for Electronic Arts. CNBC's Julia Boorstin reports the details.Earnings are out for Electronic Arts. CNBC's Julia Boorstin reports the details.,259,2017-01-31,EA,-inf
+1,2017-02-01,A videogame has been eerily right about the Super Bowl. Here's who it says will win this year  ,"Getty Images
+om Brady #12 of the New England Patriots celebrates with the Vince Lombardi Trophy after defeating the Seattle Seahawks 28-24 to win Super Bowl XLIX at University of Phoenix Stadium on February 1, 2015 in Glendale, Arizona.
+ The Atlanta Falcons may not be flying high at the end of Super Bowl LI. Electronic Arts' ""Madden NFL 17"" has made its annual prediction about the big game — and the video game forecasts the New England Patriots will come out on top by a score of 27-24.  
+ While it might be easy to shrug off a video game simulation, it's worth noting that the long-running franchise has proven especially prescient in the 13 years it has been rolling out a prediction, correctly picking the winner nine times — and in 2015 it perfectly predicted both the final score and the final play. 
+Here's how this year's game will play out, per the simulation. The Falcons will draw first blood, scoring during the first quarter after running back Tevin Coleman takes a pass from the backfield 15 yards into the end zone. Patriots quarterback Tom Brady will quickly respond, with a 38-yard play action pass to Chris Hogan for a touchdown. 
+ The second quarter will see the Falcons gain another touchdown, after a deep pass to wide receiver Julio Jones puts them in position, while the Patriots will be limited to a field goal, making the score 17-10 at the half. 
+By the time Lady Gaga's done with her performance, though, the Patriots are going to be hungry, with the offense scoring both a touchdown and a field goal in the third quarter and the defense finally finding a way to shut down Atlanta QB Matt Ryan. 
+ show chapters
+ Super Bowl spending topped $15.5 billion last year   
+ 12:01  PM ET Wed, 12 July 2017 |  01:26 
+ The Falcons will make a fourth quarter comeback, gaining a 24-20 lead, but with four minutes left in the game, Madden predicts, Tom Brady will begin a march down the field that will put the Patriots in a 4th and 4 situation with just 20 seconds remaining on the clock. A pass to wide receiver Julian Edelman in the end zone will seal the victory for New England. 
+ Whew. That's a breathtaking game even if it's just played out in your head.  
+ While Falcon fans aren't likely to put a lot of stock in the simulation, the game has done better than many Vegas oddsmakers over the years. But before you Patriots loyalists rush out to meet your bookie, it's worth noting that when it misses the mark, it does so by a pretty wide margin. It gave the edge in Super Bowl XLVIII (which saw Denver battle Seattle) to the Broncos, predicting Peyton Manning would lead his team to a 31-28 victory. In reality, it was a blowout 43-8 victory by Seattle. 
+ And last year, it confidently said the Carolina Panthers would beat the Broncos by a score of 24-20. The Broncos ran roughshod on Cam Newton and crew with a 24-10 victory. 
+ Want a little more historical knowledge before deciding how much faith to put into ""Madden's"" prediction? Here's a look at the game's full track record to date: 
+ postLoadFunctions = postLoadFunctions || {};postLoadFunctions.highchart = function(){
+function loadScripts(array,callback){var loader = function(src,handler){var script = document.createElement(""script"");script.src = src;script.onload = script.onreadystatechange = function(){script.onreadystatechange = script.onload = null;handler();}
+var domNode = document.getElementsByTagName(""body"")[0];(domNode || document.body).appendChild( script );};(function(){if(array.length!=0){loader(array.shift(),arguments.callee);}else{callback && callback();}})();}loadScripts([""//code.highcharts.com/stock/highstock.js"",""//code.highcharts.com/highcharts-more.js"",""//code.highcharts.com/highcharts-3d.js"",""//code.highcharts.com/modules/exporting.js""],function(){
+Highcharts.setOptions({chart:{renderTo: ""container"",events:{load: function (){this.renderer.image(""//fm.cnbc.com/applications/cnbc.com/resources/styles/skin/DATA-VISUALIZATION/logos/cnbc-logo-charts.png"", 10, this.chartHeight - 15, 100, 15).add();}},style:{fontFamily:""Gotham Narrow SSm 4r""}},title:{align: ""left"",x: 20,style:{fontSize: ""22px"",fontFamily:""Gotham Narrow SSm 5r"",fontWeight:""bold"",textAlign:""left""}},subtitle:{align: ""left"",x: 20, style:{fontSize: ""18px"",fontFamily:""Gotham Narrow SSm 5r"",textAlign:""left""}}});
+var options = {
+ ""chart"": {
+ ""type"": ""column"",
+ ""style"": {
+ ""fontFamily"": ""Arial""
+ }
+ },
+ ""title"": {
+ ""text"": ""How Madden predicted the Super Bowl, versus what happened""
+ },
+ ""yAxis"": {
+ ""title"": {
+ ""text"": ""Total Points Scored""
+ }
+ },
+ ""credits"": {
+ ""text"": ""Score: Madden""
+ },
+ ""xAxis"": {
+ ""labels"": {
+ ""rotation"": -65
+ },
+ ""type"": ""category""
+ },
+ ""series"": [
+ {
+ ""index"": 0,
+ ""color"": ""#e41111"",
+ ""name"": ""Madden Wrong"",
+ ""data"": [
+ [
+ ""Super Bowl 50: Panthers"",
+ 24
+ ],
+ [
+ ""Super Bowl 50: Broncos"",
+ 20
+ ],
+ [
+ ""Super Bowl XLIX: Patriots"",
+ null
+ ],
+ [
+ ""Super Bowl XLIX: Seahawks"",
+ null
+ ],
+ [
+ ""Super Bowl XLVIII: Broncos"",
+ 31
+ ],
+ [
+ ""Super Bowl XLVIII: Seahawks"",
+ 28
+ ],
+ [
+ ""Super Bowl XLVII: Ravens"",
+ null
+ ],
+ [
+ ""Super Bowl XLVII: 49ers"",
+ null
+ ],
+ [
+ ""Super Bowl XLVI: Giants"",
+ null
+ ],
+ [
+ ""Super Bowl XLVI: Patriots"",
+ null
+ ],
+ [
+ ""Super Bowl XLV: Steelers"",
+ 24
+ ],
+ [
+ ""Super Bowl XLV: Packers"",
+ 20
+ ],
+ [
+ ""Super Bowl XLIV: Saints"",
+ null
+ ],
+ [
+ ""Super Bowl XLIV: Colts"",
+ null
+ ],
+ [
+ ""Super Bowl XLIII: Steelers"",
+ null
+ ],
+ [
+ ""Super Bowl XLIII: Cardinals"",
+ null
+ ],
+ [
+ ""Super Bowl XLII: Patriots"",
+ 38
+ ],
+ [
+ ""Super Bowl XLII: Giants"",
+ 30
+ ],
+ [
+ ""Super Bowl XLI: Colts"",
+ null
+ ],
+ [
+ ""Super Bowl XLI: Bears"",
+ null
+ ],
+ [
+ ""Super Bowl XL: Steelers"",
+ null
+ ],
+ [
+ ""Super Bowl XL: Seahawks"",
+ null
+ ],
+ [
+ ""Super Bowl XXXIX: Patriots"",
+ null
+ ],
+ [
+ ""Super Bowl XXXIX: Eagles"",
+ null
+ ],
+ [
+ ""Super Bowl XXXVIII: Patriots"",
+ null
+ ],
+ [
+ ""Super Bowl XXXVIII: Panthers"",
+ null
+ ],
+ [
+ ""Super Bowl XLIX: Patriots"",
+ null
+ ],
+ [
+ ""Super Bowl XLIX: Seahawks"",
+ null
+ ]
+ ]
+ },
+ {
+ ""index"": 1,
+ ""color"": ""#4aaf24"",
+ ""name"": ""Madden Correct"",
+ ""data"": [
+ [
+ ""Super Bowl 50: Panthers"",
+ null
+ ],
+ [
+ ""Super Bowl 50: Broncos"",
+ null
+ ],
+ [
+ ""Super Bowl XLIX: Patriots"",
+ 28
+ ],
+ [
+ ""Super Bowl XLIX: Seahawks"",
+ 24
+ ],
+ [
+ ""Super Bowl XLVIII: Broncos"",
+ null
+ ],
+ [
+ ""Super Bowl XLVIII: Seahawks"",
+ null
+ ],
+ [
+ ""Super Bowl XLVII: Ravens"",
+ 27
+ ],
+ [
+ ""Super Bowl XLVII: 49ers"",
+ 24
+ ],
+ [
+ ""Super Bowl XLVI: Giants"",
+ 27
+ ],
+ [
+ ""Super Bowl XLVI: Patriots"",
+ 24
+ ],
+ [
+ ""Super Bowl XLV: Steelers"",
+ null
+ ],
+ [
+ ""Super Bowl XLV: Packers"",
+ null
+ ],
+ [
+ ""Super Bowl XLIV: Saints"",
+ 35
+ ],
+ [
+ ""Super Bowl XLIV: Colts"",
+ 31
+ ],
+ [
+ ""Super Bowl XLIII: Steelers"",
+ 28
+ ],
+ [
+ ""Super Bowl XLIII: Cardinals"",
+ 24
+ ],
+ [
+ ""Super Bowl XLII: Patriots"",
+ null
+ ],
+ [
+ ""Super Bowl XLII: Giants"",
+ null
+ ],
+ [
+ ""Super Bowl XLI: Colts"",
+ 38
+ ],
+ [
+ ""Super Bowl XLI: Bears"",
+ 27
+ ],
+ [
+ ""Super Bowl XL: Steelers"",
+ 24
+ ],
+ [
+ ""Super Bowl XL: Seahawks"",
+ 19
+ ],
+ [
+ ""Super Bowl XXXIX: Patriots"",
+ 47
+ ],
+ [
+ ""Super Bowl XXXIX: Eagles"",
+ 31
+ ],
+ [
+ ""Super Bowl XXXVIII: Patriots"",
+ 23
+ ],
+ [
+ ""Super Bowl XXXVIII: Panthers"",
+ 32
+ ],
+ [
+ ""Super Bowl XLIX: Patriots"",
+ 28
+ ],
+ [
+ ""Super Bowl XLIX: Seahawks"",
+ 24
+ ]
+ ]
+ },
+ {
+ ""index"": 2,
+ ""color"": ""#352626"",
+ ""name"": ""Actual Score"",
+ ""data"": [
+ [
+ ""Super Bowl 50: Panthers"",
+ 10
+ ],
+ [
+ ""Super Bowl 50: Broncos"",
+ 24
+ ],
+ [
+ ""Super Bowl XLIX: Patriots"",
+ 28
+ ],
+ [
+ ""Super Bowl XLIX: Seahawks"",
+ 24
+ ],
+ [
+ ""Super Bowl XLVIII: Broncos"",
+ 8
+ ],
+ [
+ ""Super Bowl XLVIII: Seahawks"",
+ 43
+ ],
+ [
+ ""Super Bowl XLVII: Ravens"",
+ 34
+ ],
+ [
+ ""Super Bowl XLVII: 49ers"",
+ 31
+ ],
+ [
+ ""Super Bowl XLVI: Giants"",
+ 21
+ ],
+ [
+ ""Super Bowl XLVI: Patriots"",
+ 17
+ ],
+ [
+ ""Super Bowl XLV: Steelers"",
+ 25
+ ],
+ [
+ ""Super Bowl XLV: Packers"",
+ 31
+ ],
+ [
+ ""Super Bowl XLIV: Saints"",
+ 31
+ ],
+ [
+ ""Super Bowl XLIV: Colts"",
+ 17
+ ],
+ [
+ ""Super Bowl XLIII: Steelers"",
+ 27
+ ],
+ [
+ ""Super Bowl XLIII: Cardinals"",
+ 23
+ ],
+ [
+ ""Super Bowl XLII: Patriots"",
+ 14
+ ],
+ [
+ ""Super Bowl XLII: Giants"",
+ 17
+ ],
+ [
+ ""Super Bowl XLI: Colts"",
+ 29
+ ],
+ [
+ ""Super Bowl XLI: Bears"",
+ 17
+ ],
+ [
+ ""Super Bowl XL: Steelers"",
+ 21
+ ],
+ [
+ ""Super Bowl XL: Seahawks"",
+ 10
+ ],
+ [
+ ""Super Bowl XXXIX: Patriots"",
+ 24
+ ],
+ [
+ ""Super Bowl XXXIX: Eagles"",
+ 21
+ ],
+ [
+ ""Super Bowl XXXVIII: Patriots"",
+ 20
+ ],
+ [
+ ""Super Bowl XXXVIII: Panthers"",
+ 29
+ ],
+ [
+ ""Super Bowl XLIX: Patriots"",
+ 28
+ ],
+ [
+ ""Super Bowl XLIX: Seahawks"",
+ 24
+ ]
+ ]
+ }
+ ]
+};
+ $(""#container"").highcharts(options);
+});
+}
+ var mps=mps||{}; mps._queue=mps._queue||{}; mps._queue.mpsinit=mps._queue.mpsinit||[]; 
+ mps._queue.mpsinit.push(function() { 
+ mps.insertComponent('#taboola_article_you_may_like', 'taboola-article-you-may-like') 
+ });",258,2017-02-01,EA,0.005167349117385326
+2,2017-05-09,Electronic Arts meets expectations  ,CNBC's Josh Lipton reports quarterly earnings from Electronic Arts.CNBC's Josh Lipton reports quarterly earnings from Electronic Arts.CNBC's Josh Lipton reports quarterly earnings from Electronic Arts.CNBC's Josh Lipton reports quarterly earnings from Electronic Arts.,191,2017-05-09,EA,-0.0029206237512705594
+3,2017-05-19,Video game sales soar in April led by Nintendo's new console  ,"CNBC's Julia Boorstin reports on the video game stocks including Electronic Arts, Nintendo, and Blizzard.CNBC's Julia Boorstin reports on the video game stocks including Electronic Arts, Nintendo, and Blizzard.CNBC's Julia Boorstin reports on the video game stocks including Electronic Arts, Nintendo, and Blizzard.CNBC's Julia Boorstin reports on the video game stocks including Electronic Arts, Nintendo, and Blizzard.",183,2017-05-19,EA,-0.006617911090139776
+4,2017-05-23,Cramer's charts take on video game companies  ,"Jim Cramer, with the help of chart master Bob Lang, examines how the fundamentals at video game companies such as Electronic Arts, Take-Two Interactive and Activision Blizzard are set up for a strong run.Jim Cramer, with the help of chart master Bob Lang, examines how the fundamentals at video game companies such as Electronic Arts, Take-Two Interactive and Activision Blizzard are set up for a strong run.Jim Cramer, with the help of chart master Bob Lang, examines how the fundamentals at video game companies such as Electronic Arts, Take-Two Interactive and Activision Blizzard are set up for a strong run.Jim Cramer, with the help of chart master Bob Lang, examines how the fundamentals at video game companies such as Electronic Arts, Take-Two Interactive and Activision Blizzard are set up for a strong run.",181,2017-05-23,EA,-0.00570378731260866
+5,2017-06-12,Electronic Arts CEO on the shift to subscriptions and micro-transactions  ,"CNBC's Julia Boorstin talks to Electronic Arts CEO, Andrew Wilson, about his game plan for the company and new games to come.CNBC's Julia Boorstin talks to Electronic Arts CEO, Andrew Wilson, about his game plan for the company and new games to come.CNBC's Julia Boorstin talks to Electronic Arts CEO, Andrew Wilson, about his game plan for the company and new games to come.CNBC's Julia Boorstin talks to Electronic Arts CEO, Andrew Wilson, about his game plan for the company and new games to come.",168,2017-06-12,EA,0.014223434534126497
+6,2017-07-27,Electronic Arts beats on top line  ,CNBC's Aditi Roy reports on the quarterly earnings for Electronic Arts.CNBC's Aditi Roy reports on the quarterly earnings for Electronic Arts.CNBC's Aditi Roy reports on the quarterly earnings for Electronic Arts.CNBC's Aditi Roy reports on the quarterly earnings for Electronic Arts.,136,2017-07-27,EA,0.003395589001138329
+7,2017-09-22,"It's officially autumn, so here are four stock picks you could fall into  ","The “Fast Money” traders share their final trades for the day including Apple, Electronic Arts, JD.com and Wal-Mart.The “Fast Money” traders share their final trades for the day including Apple, Electronic Arts, JD.com and Wal-Mart.The “Fast Money” traders share their final trades for the day including Apple, Electronic Arts, JD.com and Wal-Mart.The “Fast Money” traders share their final trades for the day including Apple, Electronic Arts, JD.com and Wal-Mart.",96,2017-09-22,EA,-0.0040588589461631715
+8,2017-10-18,Electronic Arts shares tumble on Star Wars game delay  ,"Getty Images
+A man plays Star Wars Battlefront II on opening day of the Electronic Entertainment Expo (E3) at the Los Angeles Convention Center on June 13, 2017 in Los Angeles, California.
+ Electronic Arts shares tumbled Wednesday after the game-maker announced it was postponing the release of a Star Wars action title.
+ The company also said it was closing the studio that had been working on the game. It will push back the release date of the as-yet unnamed Star Wars action-adventure game, which had been slated for the fiscal-year 2019 starting in April.
+The stock fell almost 3 percent Wednesday, to $112.39. The company confirmed press reports about the delayed timetable and studio closure after the market closed on Tuesday. The stock is still up more than 42 percent on the year. 
+ Analysts at Atlantic Equities estimated the game would sell about 8 million copies.
+""While disappointing, this is not a view changer,"" they wrote, citing the company's ability to generate sales off its existing portfolio. The analysts cut their fiscal year 2019 earnings per share estimate for the company by 2 percent, but they still project solid growth, particularly as its FIFA soccer game franchise appears set to get a boost from the World Cup.
+Analysts at Wedbush kept an ""outperform"" rating on the company's stock, with a 12-month price target of $136.00. Analysts at KeyBanc Capital Markets issued a note saying they were not revising their estimates for the stock because of uncertainty around whether EA would move new titles to 2019 to compensate.
+ var mps=mps||{}; mps._queue=mps._queue||{}; mps._queue.mpsinit=mps._queue.mpsinit||[]; 
+ mps._queue.mpsinit.push(function() { 
+ mps.insertComponent('#taboola_article_you_may_like', 'taboola-article-you-may-like') 
+ });",78,2017-10-18,EA,0.024615016014928142
+9,2017-10-31,Electronic Arts shares slip 3 percent after earnings release  Electronic Arts dips on after revenue in line with expectations  ,"show chapters
+ Electronic Arts dips on after revenue in line with expectations   
+ 7:49  PM ET Tue, 31 Oct 2017 |  01:11 
+ Electronic Arts reported quarterly revenue that met analysts' expectations on Tuesday.
+ Here's how the company did compared with what Wall Street expected:
+ Revenue: $1.18 billion vs. $1.18 billion expected according to Thomson Reuters consensus estimates.  
+ For the full year, EA said it expects net bookings of $5.15 billion, as compared with Wall Street estimates of $5.20 billion. 
+Shares slipped 3 percent in after-hours trading.
+Net bookings came in at $1.18 billion, up from $1.10 billion a year ago. 
+ Analysts expected a strong quarter with sustained momentum into fiscal year 2019, as EA expands into live and mobile game offerings.
+CFO Blake Jorgensen said the company saw a marked shift to digital in the company's sports titles. 
+""Our sports titles have once again shown their value in delivering a stable and dependable performance,"" Jorgensen said in a statement.
+As one of the most established names in the gaming industry, EA stands poised to monopolize the growth in the industry if it can successfully move into new formats. 
+As of its Tuesday close, the stock had gained more than 50 percent on the year. 
+Analysts looked to the release of a second ""Star Wars"" action-adventure game, ""Star Wars: Battlefront II,"" to drive growth for fiscal year 2018.
+Earlier this month, EA announced it would delay a separate Star Wars title because it would shutter the studio producing the game.
+ This is breaking news. Please check back for updates. 
+Correction: This story has been updated to reflect that EA delayed the release of a separate ""Star Wars"" game. An earlier version of this story misstated which title would be delayed. 
+ var mps=mps||{}; mps._queue=mps._queue||{}; mps._queue.mpsinit=mps._queue.mpsinit||[]; 
+ mps._queue.mpsinit.push(function() { 
+ mps.insertComponent('#taboola_article_you_may_like', 'taboola-article-you-may-like') 
+ });CNBC's Aditi Roy reports on the quarterly earnings for Electronic Arts.CNBC's Aditi Roy reports on the quarterly earnings for Electronic Arts.CNBC's Aditi Roy reports on the quarterly earnings for Electronic Arts.CNBC's Aditi Roy reports on the quarterly earnings for Electronic Arts.",69,2017-10-31,EA,-0.017033888542422503
+10,2017-11-01,Electronic Arts shares drop after Wall Street raises concerns over 'Star Wars' game sales  ,"show chapters
+ Electronic Arts shares drop   
+ 12:05  PM ET Mon, 13 Nov 2017 |  00:42 
+ ""Star Wars Battlefront II,"" Electronic Arts' biggest game this holiday season, is the big question mark for the high-flying stock. The video game publisher reported better-than-expected fiscal second-quarter earnings on Tuesday and raised guidance for the full year, but its December quarter forecast was slightly below Wall Street estimates.
+ EA shares were down 5 percent Wednesday.
+""Despite raising F18 guidance, investors may focus on below-consensus F3Q EPS, reflecting some expense timing shifts and lower-margin licensed titles [such as Star Wars],"" Baird analyst Colin Sebastian wrote in a note to clients Wednesday.
+ Sebastian reiterated his outperform rating and $130 price target for EA shares.
+Jefferies' analyst Timothy O'Shea said he is not totally confident about the financial success of the ""Star Wars"" game release this month, questioning whether users will behave the same way as users of EA's other popular games.
+""If Star Wars can encourage users to spend real money on virtual goods (like FIFA) the game could drive meaningful upside to F'18 and '19 EPS, but this is not a certainty,"" O'Shea wrote in a note to clients Wednesday entitled ""Star Wars Battlefront 2: A Trick Or a Treat?""
+One Wall Street analyst, Cowen's Doug Creutz, said he is worried EA's financial guidance may not be low enough. In a note, he did say that EA is well positioned for growth over the long term, with a strong presence in the rapidly growing mobile gaming segment. But he added: ""We think FY18 guidance is not as conservative as usual, and that there are few interesting catalysts to drive incremental investor interest over the next 12 months.""
+Creutz reaffirmed his market perform rating and a price target of $106, which is $11 lower than Tuesday's closing price.
+EA's stock is up 52 percent year to date through Tuesday compared with the S&P 500's 15 percent gain.
+The company did not respond to a request for comment on the Wall Street analyst research.
+ Disclaimer
+ var mps=mps||{}; mps._queue=mps._queue||{}; mps._queue.mpsinit=mps._queue.mpsinit||[]; 
+ mps._queue.mpsinit.push(function() { 
+ mps.insertComponent('#taboola_article_you_may_like', 'taboola-article-you-may-like') 
+ });",68,2017-11-01,EA,0.043840061586146284
+11,2017-11-13,Electronic Arts shares drop  ,Electronic Arts shares are falling after the publisher gave a December quarter forecast slightly below Wall Street estimates.Electronic Arts shares are falling after the publisher gave a December quarter forecast slightly below Wall Street estimates.Electronic Arts shares are falling after the publisher gave a December quarter forecast slightly below Wall Street estimates.Electronic Arts shares are falling after the publisher gave a December quarter forecast slightly below Wall Street estimates.,60,2017-11-13,EA,0.006584825359139497
+12,2017-11-15,"Wall Street is getting worried social media outrage over EA's ‘Star Wars’ game may hurt sales  Electronic Arts, Intel, Cisco, First Republic & Bank of America  Wall Street is getting worried social media outrage over EA's 'Star Wars' game may hurt sales  ","show chapters
+ Wall Street is getting worried social media outrage over EA's 'Star Wars' game may hurt sales   
+ 1:29  PM ET Wed, 15 Nov 2017 |  01:00 
+ Gamers are angry over Electronic Arts' money-making strategy in its new ""Star Wars"" game. Wall Street is taking notice and getting concerned over the title's financial prospects.
+ The uproar centered on in-game purchases in ""Star Wars Battlefront II."" They allowed players to save time by paying extra money to accelerate the ""unlock"" of major characters like Darth Vader.
+ Tweet Link
+ The gaming community flooded social media and Reddit with thousands of negative posts, saying the company is unfairly compelling consumers to spend more money for content that should be part of the initial $60 game price.
+EA's ""Star Wars Battlefront II"" officially launches on Friday, but portions of the game went live on Nov. 9 for the company's EA Access and Origin Access subscribers.
+The company has already partly backtracked as it announced Monday it reduced the cost to unlock key characters by 75 percent.
+At a Bank of America Merrill Lynch investor meeting, Electronic Arts Chief Financial Officer Blake Jorgensen was asked about the issues.
+In a note to clients Wednesday, analyst Justin Post said: ""Management highlighted game depth and quality, but did not provide an update on unit expectations. As for the Battlefront 2 hero costs controversy, EA indicated the original hero costs were established based on targeted rate of game play progression and balance (not economics).""
+Post added: ""We see recent controversies as a potential risk for unit sales vs buyside expectations, although EA has conservative estimates for Battlefront Live Services.""
+Post maintained his buy rating and $137 price target for Electronic Arts shares, representing 22 percent upside to Tuesday's close.
+Piper Jaffray noted the controversy is also detracting from the game's review scores.
+""Early reviews have been impacted by negative sentiment around a character progression system that publications and consumers believe overemphasize microtransactions,"" analyst Michael Olson wrote in a note to clients Tuesday. ""We believe review scores for a game like Star Wars Battlefront are less important, given the strength of the Star Wars brand, but recognize the negative sentiment is a challenge.""
+Olson reaffirmed his overweight rating and $130 price target for Electronic Arts shares.
+Even before the recent social media controversy, other analysts were concerned over ""Star Wars Battlefront II"" prospects.
+Jefferies' analyst Timothy O'Shea questioned whether ""Star Wars"" game buyers will pay more like consumers of EA's popular sports titles.
+""If Star Wars can encourage users to spend real money on virtual goods (like FIFA) the game could drive meaningful upside to F'18 and '19 EPS, but this is not a certainty,"" O'Shea wrote in a note to clients Nov. 1 entitled ""Star Wars Battlefront 2: A Trick Or a Treat?""
+EA's stock is up 43 percent year to date through Tuesday compared with the S&P 500's 15 percent gain.
+The company did not immediately respond to a request for comment.
+ —CNBC's Sara Salinas contributed to this report.
+ Disclaimer
+ var mps=mps||{}; mps._queue=mps._queue||{}; mps._queue.mpsinit=mps._queue.mpsinit||[]; 
+ mps._queue.mpsinit.push(function() { 
+ mps.insertComponent('#taboola_article_you_may_like', 'taboola-article-you-may-like') 
+ });The ""Halftime Report"" traders give their top stocks to watch for the second half.The ""Halftime Report"" traders give their top stocks to watch for the second half.The ""Halftime Report"" traders give their top stocks to watch for the second half.The ""Halftime Report"" traders give their top stocks to watch for the second half.Analysts are concerned about the growing uproar over Electronic Arts' ""Star Wars Battlefront II"" in-game monetization model. Analysts are concerned about the growing uproar over Electronic Arts' ""Star Wars Battlefront II"" in-game monetization model. Analysts are concerned about the growing uproar over Electronic Arts' ""Star Wars Battlefront II"" in-game monetization model. Analysts are concerned about the growing uproar over Electronic Arts' ""Star Wars Battlefront II"" in-game monetization model. ",58,2017-11-15,EA,0.007061481856940555
+13,2017-11-22,Backlash grows over EA's 'Star Wars Battlefront II' game  ,"CNBC's Julia Boorstin reports the latest on Electronic Arts' ""Star Wars Battlefront II"" game and the controversy over in-game purchases.CNBC's Julia Boorstin reports the latest on Electronic Arts' ""Star Wars Battlefront II"" game and the controversy over in-game purchases.CNBC's Julia Boorstin reports the latest on Electronic Arts' ""Star Wars Battlefront II"" game and the controversy over in-game purchases.CNBC's Julia Boorstin reports the latest on Electronic Arts' ""Star Wars Battlefront II"" game and the controversy over in-game purchases.",53,2017-11-22,EA,0.0036274048052555357
+14,2017-12-11,Analyst cuts EA profit estimates after social media uproar leads to 'Star Wars' game sales plunge  ,"show chapters
+ Analyst cuts EA profit estimates after social media uproar leads to 'Star Wars' game sales plunge   
+ 9:18  AM ET Tue, 12 Dec 2017 |  00:52 
+ Electronic Arts will reinstitute in-game purchases in its ""Star Wars Battlefront II"" title despite recent wavering by one of its top executives, according to a Wall Street firm.
+ Bank of America Merrill Lynch lowered its price target and profit forecasts for Electronic Arts shares due to poor sales of the ""Star Wars"" game.
+""EA has had a challenging C4Q, beginning with the shutdown of Visceral Games and now Battlefront 2 (BF2) controversy,"" analyst Justin Post wrote in a note to clients Monday entitled ""Lowering ests for BF2; Stock weakness sets up for a better 2018."" ""As controversy subsides post-holidays, we expect investor interest to pick up ahead of a stronger FY19 title slate, renewed digital optimism, and operating leverage potential. Battlefront MTX relaunch and FIFA World Cup content launch are key 1H events.""
+ Post maintained his buy rating and reduced his price target to $130 from $137 for Electronic Arts shares, representing 23.5 percent upside to Friday's close.
+The analyst noted how EA shares have ""materially underperformed"" since the end of September falling 11 percent versus the S&P 500's 5 percent return. He said November U.S. physical game unit sales of ""Star Wars Battlefront II"" declined 52 percent versus 2015's ""Star Wars Battlefront"" in its first month, according to NPD sell-through data.
+As a result, Post predicts the title will miss the company's guidance of 14 million unit sales by 2.5 million. The analyst lowered his earnings estimates for EA's fiscal 2018 earnings-per-share to $4.22 from $4.28. He also reduced his fiscal 2019 forecast to $5.02 from $5.14.
+Electronic Arts announced Nov. 16, a day before the ""Star Wars Battlefront II"" game's official launch, that it is temporarily turning off all in-game purchases for the game in response to negative sentiment from gamers.
+""It's clear that many of you feel there are still challenges in the design. We've heard the concerns about potentially giving players unfair advantages. … Sorry we didn't get this right,"" EA wrote in the post.
+The company told gamers then it will change the micro-transaction model for the game in the future. However, EA's chief financial officer, Blake Jorgensen, at NASDAQ investor conference on Dec. 5 seemed to be open to turning off micro-transactions permanently for the title.  ""Over time, we'll address how we will want to bring the MTX either into the game or not and in what form we'll decide to bring it into,"" he said.
+Post still predicts EA will relaunch micro-transactions for the ""Star Wars"" game.
+""Battlefront 2 MTX likely to return next year,"" he wrote. ""Perhaps the biggest stock negative from the BF2 MTX issues is the potential negative impact on FY19 MTX revenues … That said, even with 12mn in total units sold and an average of $10 of MTX per game sold, BF2 could still do over $100mn in MTX.""
+Here are the different ways the analyst suggested EA can add in-gaming purchasing back into the title:
+ ""Focus MTX on cosmetics … we see some room for skins such as light saber and blaster coloration, vehicles appearance modifications, and potentially hero costumes from different scenes/events in the movies."" ""Supporting heroes to unlock/purchase. Locking iconic heroes like Darth Vader and Luke Skywalker upset the player base, but rolling out new supporting heroes from the comics/movies would likely see less pushback. Also, players may be more open to purchasing via MTX vs grinding additional currency later in the game lifecycle."" ""Integrate a visible collectable. Other games have created visible (but subtle) collectible items available with achievements, currency, or MTX (i.e. virtual companions/pets)."" ""Single player downloadable content. EA could introduce expansions to the single player campaign, driving additional player spend without fragmenting the multiplayer universe."" 
+EA's stock is up 34 percent year to date through Friday compared with the S&P 500's 18 percent gain.
+The company declined to comment on this story.
+ Disclaimer
+ EA's 'Star Wars' gamer outrage raises questions over microtransactions:
+ show chapters
+ EA's 'Star Wars' gamer outrage raises questions over microtransactions   
+ 7:10  PM ET Wed, 22 Nov 2017 |  01:10 
+ var mps=mps||{}; mps._queue=mps._queue||{}; mps._queue.mpsinit=mps._queue.mpsinit||[]; 
+ mps._queue.mpsinit.push(function() { 
+ mps.insertComponent('#taboola_article_you_may_like', 'taboola-article-you-may-like') 
+ });",41,2017-12-11,EA,-0.024861733636267036
+15,2018-01-24,Electronic Arts shares drop on report ‘Anthem’ game will get delayed to 2019  ,"Source: EA
+EA game Anthem.
+ One of Electronic Arts' key games slated for this year is getting moved out to 2019, according to a gaming news site report.
+ Kotaku's Jason Schreier said ""Anthem,"" which was slated for a fall of 2018 release is now planned for a launch in early 2019, according to three people familiar with the project.
+The company's shares closed 2.6 percent lower following the report.
+ The ""Anthem"" news comes after the controversial Electronic Arts' ""Star Wars Battlefront II"" release last November. Gamers revolted over the title's initial in-game money-making plans, which forced EA to temporarily turning off all in-game purchases a day before its official launch.
+One Wall Street analyst downplayed the impact of a potential delay Wednesday.
+The Kotaku report ""would imply that the game release would still fall in its FY19. All else equal, this likely wouldn't have a massive impact to estimates; it raises further concerns about the production of the game if it gets pushed a second time,"" KeyBanc Capital Markets analyst Evan Wingren wrote in a note to clients. ""These concerns are likely to be amplified given the recent execution concerns.""
+The analyst predicts ""Anthem"" will sell 9 million units for the game publisher. 
+EA did not immediately respond to a request for comment.
+Read here for the full Kotaku article.
+ Disclaimer
+ var mps=mps||{}; mps._queue=mps._queue||{}; mps._queue.mpsinit=mps._queue.mpsinit||[]; 
+ mps._queue.mpsinit.push(function() { 
+ mps.insertComponent('#taboola_article_you_may_like', 'taboola-article-you-may-like') 
+ });",12,2018-01-24,EA,0.025912868995601003
+16,2018-01-26,"Gamer anger over microtransactions will have consequences for Activision, Electronic Arts: Analyst  ","Chesnot | Getty Images
+Gamers play the video game 'Destiny 2' developed by Bungie Studios and published by Activision during the 'Paris Games Week' on October 31, 2017 in Paris, France.
+ The controversy over in-game microtransactions will have a lasting negative impact on game publishers, according to one Wall Street firm.
+ Cowen reiterated its market perform ratings for Activision Blizzard's and Electronic Arts' shares, citing increasing development costs.
+""Game development times are getting longer, and R&D costs are growing faster than they had previously,"" analyst Doug Creutz wrote in a note to clients Friday. ""This isn't a monopoly business … Angering your customer with bad MTX [microtransactions] does matter.""
+ Creutz reaffirmed his $66 price target for Activision Blizzard shares, representing 7 percent downside to Thursday's close. He also reiterated his $104 price target for EA stock, which is 9 percent lower than Thursday's close.
+The analyst said research and development spending growth is accelerating for gaming companies. He noted R&D budgets for the four largest publishers grew at roughly a 1 percent annual rate from 2010 to 2015, then rose to more than 8 percent per year the last two years.
+Creutz said the outrage over the initial money-making strategy in EA's ""Star Wars Battlefront II"" likely hurt the title's sales by 3 million to 4 million units versus the company's 14 million guidance. He noted Activision's ""Destiny 2"" player engagement is waning after the community questioned the game's design decisions.
+The ""industry plans to further expand live services revenue appear to have run into some roadblocks with gamers sounding off against some recent titles, notably EA's ""Star Wars Battlefront II"" and Activision's ""Destiny 2"" (though the issues with the latter go beyond just MTX),"" he wrote. ""We think writing off angry gamers as largely irrelevant is a mistake.""
+He added:
+ ""[Star Wars Battlefront II] has pretty clearly significantly underperformed expectations and remains without a live services revenue stream, while Destiny 2 has at the least suffered some unwanted engagement attrition. We suspect that 2018 will see a pullback on industry attempts to aggressively drive MTX growth as a result."" 
+The analyst also warned gaming industry stocks may falter due to high expectations.
+""Current valuations are pricing in an awful lot of good news, with an investor base that seems at least somewhat complacent,"" he wrote. ""It's not just that gamers are angry and complaining; there have clearly been performance consequences for the games involved. And in an industry where every company is dependent upon a relatively small number of franchises, this matters.""
+Electronic Arts and Activision Blizzard did not immediately respond to requests for comment.
+ Disclaimer
+ var mps=mps||{}; mps._queue=mps._queue||{}; mps._queue.mpsinit=mps._queue.mpsinit||[]; 
+ mps._queue.mpsinit.push(function() { 
+ mps.insertComponent('#taboola_article_you_may_like', 'taboola-article-you-may-like') 
+ });",10,2018-01-26,EA,-0.006094925267496588
+17,2018-01-30,"Stocks making the biggest moves after hours: Advanced Micro Devices, Electronic Arts & more  Electronic Arts misses on top line  ","show chapters
+ AMD beats the Street   
+ 5:27  PM ET Tue, 30 Jan 2018 |  00:49 
+ Check out the companies making headlines after the bell Tuesday: 
+ Advanced Micro Devices shares wobbled after the bell, plunging 6 percent before settling slightly up. The chipmaker reported fourth quarter financial results that beat analyst expectations on top and bottom lines, and also reported strong guidance. Where other companies have had to pay fees for tax reform, AMD said it received a one-time tax credit of $18 million.
+Shares of AMD are up more than 25 percent year-to-date.
+ Shares of Electronic Arts jumped more than 6 percent in after hours trading. The video game company reported third quarter revenue of $1.97 billion, just missing analyst projections of $2.01 billion and also reported a one-time $176 million expense, due to tax reform. Despite the revenue miss, EA reported fourth quarter guidance that beat analyst expectations.
+Shares of Illumina edged up about 1 percent in the extended session, after the the biotech company reported fourth quarter and fiscal 2017 financial results. Fourth quarter revenue increased by 26 percent year-over-year, and full year revenue by 17 percent, according to a filing.  
+Juniper Networks stock fell more than 7 percent in extended trading. The networking hardware company reported fourth quarter earnings of $0.53 per share on revenue of $1.24 billion, just beating analyst expectations of $0.52 EPS on revenue of $1.23 billion.
+ show chapters
+ Juniper shares slide on weak Q1 guidance   
+ 5:11  PM ET Tue, 30 Jan 2018 |  00:37 
+ Juniper also released weak first quarter earnings and revenue guidance, attributing the disappointing outlook to reduced volume from product delays for its large cloud customers, according to a company filing.
+Shares of Stryker lost more than 3 percent after the bell. The medical technology firm reported a fourth quarter loss, despite profitability in the year-ago quarter.
+Shares of Stryker are up 8.7 percent year to date and 37.4 percent in the last 12 months.
+ var mps=mps||{}; mps._queue=mps._queue||{}; mps._queue.mpsinit=mps._queue.mpsinit||[]; 
+ mps._queue.mpsinit.push(function() { 
+ mps.insertComponent('#taboola_article_you_may_like', 'taboola-article-you-may-like') 
+ });CNBC's Julia Boorstin reports on the quarterly earnings for Electronic Arts.CNBC's Julia Boorstin reports on the quarterly earnings for Electronic Arts.CNBC's Julia Boorstin reports on the quarterly earnings for Electronic Arts.CNBC's Julia Boorstin reports on the quarterly earnings for Electronic Arts.",8,2018-01-30,EA,-0.008885186442250809
+18,2018-02-01,"'Fast Money' final trades: Apple, EA and more  ","The “Fast Money” traders share their final trades for the day including Apple, MasterCard, Electronic Arts, and Goldman Sachs.The “Fast Money” traders share their final trades for the day including Apple, MasterCard, Electronic Arts, and Goldman Sachs.The “Fast Money” traders share their final trades for the day including Apple, MasterCard, Electronic Arts, and Goldman Sachs.The “Fast Money” traders share their final trades for the day including Apple, MasterCard, Electronic Arts, and Goldman Sachs.",6,2018-02-01,EA,-0.0095634498579273

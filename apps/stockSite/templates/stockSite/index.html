@@ -1,0 +1,34 @@
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <title>stockCrawl</title>
+  </head>
+
+
+  <body>
+    <h1>StockCrawl</h1>
+    <p>Search financial news outlets for articles relating to any stock on the market!</p>
+    <form action="crawl" method="post">
+       {% csrf_token %}
+      <label for="stock">Stock: <input type="text" name="stock"></label>
+      <input type="submit">
+    </form>
+
+    <table style="width: 100%; border: 1px solid black; border-collapse:collapse; padding: 5px">
+      <thead>
+        <th style='border: 1px solid silver; padding: 7px; margin-top: 20px;'>Headline</th>
+        <th style='border: 1px solid silver; padding: 7px; margin-top: 20px;'>Date Posted</th>
+        <th style='border: 1px solid silver; padding: 7px; margin-top: 20px;'>Link</th>
+      </thead>
+      {%for a in articles%}
+      <tr style='border: 1px solid silver; padding:7px; margin-top: 20px;'>
+        <td style='width:60%;border: 1px solid silver; padding:7px; margin-top: 20px;'>{{a.headline}}</td>
+        <td  style='width:15%; border: 1px solid silver; padding:7px; margin-top: 20px;'>{{a.postDate}}</td>
+        <td style=' width:25%; border: 1px solid silver; padding:7px; margin-top: 20px;'>{{a.link}}</td>
+      </tr>
+      {% endfor %}
+    </table>
+  </body>
+
+</html>
