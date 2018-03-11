@@ -1,0 +1,72 @@
+//https://stackoverflow.com/questions/7204232/flot-show-time-axis-without-gaps
+
+
+10
+down vote
+accepted
+Too bad I can't accept a comment as an answer, since the answer from George Roberts from Mark's link worked smoothly.
+
+So what I had to do is to change the mode of the flot from 'time' to null and then emulate a time axis.
+
+I've created two arrays: the first one with data for the graph and the second one with timestamps:
+
+for (var i=0; i<json.length; i++ ) {
+    dotsData.push( [i, json[i].value] );
+    ticks.push( json[i].date );
+    }
+}
+Time axis emulation:
+
+// flot options
+... xaxis: { tickFormatter: function(val) { return formTicks(val, ticks) } } ...
+
+// formTicks function
+function formTicks(val, ticksArr) {
+    var tick = ticksArr[val];
+
+    if ( tick != undefined ) {
+        tick = new Date( tick );
+
+        var hours = tick.getHours(),
+            minutes = tick.getMinutes();
+
+            tick = hours+':'+minutes;
+    }
+    else { tick = '' }
+
+    return tick
+}
+It solves the problem, but it's hard to distinguish one day from another, so I added markings:
+
+var markings = [],
+    firstDay = new Date( ticks[0] ).getDate();
+
+    for (var i=1; i<ticks.length; i++) {
+        var loopDay = new Date( ticks[i] ).getDate();
+        if ( loopDay != firstDay ) {
+            var marking = {
+                color: '#000000',
+                lineWidth: 1,
+                xaxis: { from: i, to: i }
+            }
+
+        markings.push( marking )
+
+        firstDay = loopDay; // loop through all days
+    }
+}
+
+// flot options
+grid: { markings: markings }
+The result:
+
+
+OR
+Use transform and inverseTransform, which were designed for situations such as this. See the following portion of the FLOT documentation.
+
+"transform" and "inverseTransform" are callbacks you can put in to change the way the data is drawn. You can design a function to compress or expand certain parts of the axis non-linearly, e.g. suppress weekends or compress far away points with a logarithm or some other means. When Flot draws the plot, each value is first put through the transform function. Here's an example, the x axis can be turned into a natural logarithm axis with the following code:
+
+xaxis: {
+        transform: function (v) { return Math.log(v); },
+        inverseTransform: function (v) { return Math.exp(v); }
+       }
