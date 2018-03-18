@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>stockCrawl</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/crawl.css' %}">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script type="text/javascript" src="{% static 'jquery.flot.js' %}"></script>
+    <script type="text/javascript" src="{% static 'jquery.flot.time.js' %}"></script>
+    <script type="text/javascript" src="{% static 'jquery.flot.symbol.js' %}"></script>
+    <script type="text/javascript" src="{% static 'jquery.flot.axislabels.js' %}"></script>
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+    <script type="text/javascript">
+    $(document).ready(
+      function(){
+        var stock="{{stock}}"
+        var symbol="{{symbol}}"
+        $.ajax({
+          url:'/crawlbb',
+          method:'post',
+          headers: {"X-CSRFToken": getCookie("csrftoken")},
+          data:{'stock':stock,'symbol':symbol},
+      success:function(serverResponse){
+          console.log("bbSpider crawl finished")
+          jResponse=JSON.parse(serverResponse)
+          console.log(jResponse)
+
+          var htmlString="<table><thead><tr><th>Headline</th><th>Post Date</th><th>Link</th></tr></thead><tbody>"
+                  for (var i=0;i<jResponse.length;i++){
+                      pDate=new Date(jResponse[i]['fields']['postDate'])
+                      htmlString+="<tr>"
+                          +"<td>"+ jResponse[i]['fields']['headline'] +"</td>"
+                          +"<td>"+ pDate.toLocaleString()+"</td>"
+                          +"<td><a href=' "+ jResponse[i]['fields']['link']+"'>"+jResponse[i]['fields']['link'] +"</a></td>"
+                        +"</tr>"
+                      }
+                      htmlString+="</tbody></table>"
+          $('#bbSpider').html(htmlString)
+      }//end success
+    }) //end ajax for bbSpider crawl
+
+    $.ajax({
+      url:'/crawlcnbc',
+      method:'post',
+      headers: {"X-CSRFToken": getCookie("csrftoken")},
+      data:{'stock':stock,'symbol':symbol},
+  success:function(serverResponse){
+      console.log("cnbcSpider crawl finished")
+      jResponse=JSON.parse(serverResponse)
+      console.log(jResponse)
+
+      var htmlString="<table><thead><tr><th>Headline</th><th>Post Date</th><th>Link</th></tr></thead><tbody>"
+            for (var i=0;i<jResponse.length;i++){
+                pDate=new Date(jResponse[i]['fields']['postDate'])
+                htmlString+="<tr>"
+                      +"<td>"+ jResponse[i]['fields']['headline'] +"</td>"
+                      +"<td>"+ pDate.toLocaleString()+"</td>"
+                      +"<td><a href=' "+ jResponse[i]['fields']['link']+"'>"+jResponse[i]['fields']['link'] +"</a></td>"
+                    +"</tr>"
+                  }
+                  htmlString+="</tbody></table>"
+      $('#cnbcSpider').html(htmlString)
+  }//end success
+}) //end ajax for cnbcSpider crawl
+
+
+      function getCookie(name) {
+      var cookieValue = null;
+      if (document.cookie && document.cookie !== '') {
+        var cookies = document.cookie.split(';');
+        for (var i = 0; i < cookies.length; i++) {
+            var cookie = jQuery.trim(cookies[i]);
+            // Does this cookie string begin with the name we want?
+            if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                break;
+            }
+        }
+    }
+    return cookieValue;
+}
+      })//end script
+    </script>
+  </head>
+  <body>
+    <div id="wrapper">
+    <a href="/"><h1>StockCrawl</h1></a>
+    <p>stock crawled: {{stock}} | {{symbol}}</p>
+    <h3>Bloomberg Spider</h3>
+    <div class="spiderTable" id="bbSpider">Crawling ...</div>
+    <h3>CNBC Spider</h3>
+    <div class="spiderTable" id="cnbcSpider">Crawling...</div>
+
+</div>
+
+  </body>
+</html>

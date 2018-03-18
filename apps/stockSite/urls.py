@@ -6,10 +6,12 @@ from .models import all_stock_names
 
 
 urlpatterns = [
+    #url(r'^index$', views.index),
+    url(r'^crawlbb$', views.crawlbb),
+    url(r'^crawlcnbc$', views.crawlcnbc),
     url(r'^$', views.landing,name="home"),
-    url(r'^crawl$',views.crawl),
     url(r'^search/$',views.stockSearchAutocomplete.as_view(model=all_stock_names)
-    ,name='search') # responds to format http://localhost:5000/search/?q=apple
+            ,name='search'), # responds to format http://localhost:5000/search/?q=apple
     ]
 
 # This is required for static files while in development mode. (DEBUG=TRUE)

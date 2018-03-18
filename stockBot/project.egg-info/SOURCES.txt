@@ -1,0 +1,17 @@
+setup.py
+project.egg-info/PKG-INFO
+project.egg-info/SOURCES.txt
+project.egg-info/dependency_links.txt
+project.egg-info/entry_points.txt
+project.egg-info/top_level.txt
+stockBot/__init__.py
+stockBot/items.py
+stockBot/middlewares.py
+stockBot/pipelines.py
+stockBot/settings.py
+stockBot/sqlite.py
+stockBot/testUtil.py
+stockBot/spiders/__init__.py
+stockBot/spiders/bloomberg.py
+stockBot/spiders/cnbc.py
+stockBot/spiders/cnbcSpiderWeb.py

@@ -9,7 +9,7 @@
   <body>
     <h1>StockCrawl</h1>
     <p>Search financial news outlets for articles relating to any stock on the market!</p>
-    <form action="crawl" method="post">
+    <form action="indexcrawl" method="post">
        {% csrf_token %}
       <label for="stock">Stock: <input type="text" name="stock"></label>
       <input type="submit">

@@ -1,0 +1,26 @@
+*{
+  font-size: 14px;
+
+}
+
+#wrapper{
+  width:960px;
+  margin:auto;
+  padding:6px;
+
+}
+
+h3{
+  margin-top:8px;
+}
+
+.spiderTable{
+  border:1px solid black;
+  border-collapse:collapse;
+  padding: 6px;
+  margin: 6px;
+}
+table, th, tr, td{
+  border:1px solid black;
+  padding:8px;
+}
