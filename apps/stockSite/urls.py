@@ -12,6 +12,7 @@ urlpatterns = [
     url(r'^$', views.landing,name="home"),
     url(r'^search/$',views.stockSearchAutocomplete.as_view(model=all_stock_names)
             ,name='search'), # responds to format http://localhost:5000/search/?q=apple
+    url(r'^customText$', views.customText),
     ]
 
 # This is required for static files while in development mode. (DEBUG=TRUE)

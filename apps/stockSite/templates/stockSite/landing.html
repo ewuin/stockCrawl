@@ -4,6 +4,7 @@
     <meta charset="utf-8">
     <title>StockCrawl</title>
     {% load static %}
+    <link rel="stylesheet" href="{% static 'css/landing.css' %}">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script type="text/javascript" src="{% static 'jquery.flot.js' %}"></script>
     <script type="text/javascript" src="{% static 'jquery.flot.time.js' %}"></script>
@@ -143,6 +144,42 @@ function showTooltip(x, y, color, contents) {
     }).appendTo("body").fadeIn(200);
 }
 
+function getCookie(name) {
+var cookieValue = null;
+if (document.cookie && document.cookie !== '') {
+  var cookies = document.cookie.split(';');
+  for (var i = 0; i < cookies.length; i++) {
+      var cookie = jQuery.trim(cookies[i]);
+      // Does this cookie string begin with the name we want?
+      if (cookie.substring(0, name.length + 1) === (name + '=')) {
+          cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+          break;
+      }
+  }
+}
+return cookieValue;
+}
+
+$("#customEntry").submit(
+  function(e){
+    e.preventDefault();
+    console.log($(this).serialize())
+    $("#customResult").html("Analyzing text ...")
+
+    $.ajax({
+      url:'customText',
+      method:'post',
+      headers: {"X-CSRFToken": getCookie("csrftoken")},
+      data:$(this).serialize(),
+      success: function(serverResponse){
+        jResponse=JSON.parse(serverResponse)
+      console.log("sentiment analysis complete for custom text",serverResponse);
+    $("#customResult").html("Sentiment Result: "+jResponse['sentiment'])
+    }
+    }) //end ajax
+  }
+)//end submit
+
         } )// end script
     </script>
 
@@ -150,18 +187,19 @@ function showTooltip(x, y, color, contents) {
 
   </head>
   <body>
-    <div id="wrapper" style="width:960px; margin:auto; padding:5px">
-    <p>Search and ananlyze financial news outlets for articles relating to any stock on the market!</p>
+    <div id="wrapper">
+    <h1>StockCrawl</h1>
+    <p>Crawl for financial news articles about any stock on the market,
+      and see the result of a sentiment analysis on the content!</p>
     {% load static %}
 
     {% block content %}
-    <div>
+    <h3>Enter a stock</h3>
         <form action="search/" method="post">
             {% csrf_token %}
             {{ form.as_p }}
             <input type="submit" />
         </form>
-    </div>
     {% endblock %}
 
     {% block footer %}
@@ -169,8 +207,15 @@ function showTooltip(x, y, color, contents) {
     {{ form.media }}
     {% endblock %}
 
-    <div id="dowPlot"  style="width:900px; height:750px; border:1px solid black; padding:8px">
-
+<div>
+    <h3>Or get the sentiment for your own text entry:</h3>
+    <form id="customEntry">
+      <textarea name="customText" rows="8" cols="80" placeholder="enter custom text"></textarea>
+      <input type="submit">
+    </form>
+    <p id="customResult"></p>
+</div>
+    <div id="dowPlot">
     </div>
 </div>
   </body>

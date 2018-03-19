@@ -6,6 +6,8 @@ import scrapy
 import re
 #import uuid
 from bs4 import BeautifulSoup as bsObj
+from .sentiment_script_bloomberg import clean_article
+from .sentiment_script_bloomberg import sentiment_analysis
 
 class bbSpider(scrapy.Spider):
     name = "bbSpider"
@@ -17,6 +19,10 @@ class bbSpider(scrapy.Spider):
         self.unique_id=kwargs.get('task_id')
         if not self.stock:
             self.stock='apple'
+        if not self.stockTicker:
+            self.stockTicker='AAPL'
+        if not self.unique_id:
+            self.unique_id='defaultUniqueIDapple'
 
     def start_requests(self):
         print self.stock
@@ -69,8 +75,13 @@ class bbSpider(scrapy.Spider):
         if len(article_html)<1:
             article_html=get_paragraphs(response)
         print self.stockTicker
+        article_html=u" ".join([i for i in article_html.lower().split()])
+        clean_article_html=clean_article(article_html)
         #print article_html has trouble printing ascii character
-        yield bloombergStockbotItem(unique_id=self.unique_id,headline=headline,postDate=postDate,link=link,articleHTML=article_html,stockTicker=self.stockTicker)
+        article_in_array=[clean_article_html]
+        sentiment=sentiment_analysis(article_in_array)
+        print sentiment
+        yield bloombergStockbotItem(unique_id=self.unique_id,headline=headline,postDate=postDate,link=link,articleHTML=clean_article_html,stockTicker=self.stockTicker,sentiment=sentiment)
 
     def parse3(self, response):
         for quote in response.css('div.search-result'):

@@ -1,5 +1,5 @@
 #this file will take the add_articles.csv files and clean the articles in the articleHTML columns
-#it will then return the clean html and the categorizations (bullish, bearish, neutral) which will be the
+#it will then return the clean html as text and the categorizations (bullish, bearish, neutral) which will be the
 #two columns (in a csv file) for the final input into the machine learning/sentiment analysis functions
 from nltk.corpus import stopwords
 from nltk.stem.wordnet import WordNetLemmatizer
@@ -119,7 +119,7 @@ for stock in stock_array:
     final_data_frame=pd.concat([final_data_frame,data_to_append])
     print final_data_frame.head()
 
-new_file_name="final_clean_data_set.csv"
+new_file_name="final_clean_data_set_three_category.csv"
 
 #final_data_frame.reset_index(inplace=True)
 #final_data_frame.drop(index=1474) #dropping rows to get exactly 1550 rows

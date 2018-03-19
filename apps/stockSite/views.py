@@ -22,6 +22,9 @@ from .forms import *
 from scrapy.utils.project import get_project_settings
 from dal import autocomplete
 import time
+
+from .sentiment_script_custom import clean_article
+from .sentiment_script_custom import sentiment_analysis
 # Create your views here.
 
 # connect scrapyd service
@@ -130,12 +133,20 @@ class stockSearchAutocomplete(autocomplete.Select2QuerySetView,TemplateView):
         stockID=request.POST['name']
         stock=all_stock_names.objects.get(id=stockID)
         print stock.name
-        #crawl(stock.name,stock.symbol)
-        #response.status_code=200 ?? place in context?
         context={'stock':stock.name, 'symbol':stock.symbol}
         return render(request,'stockSite/crawl.html',context)
 
-
+def customText(request):
+    print "custom text entered"
+    #print request.POST['customText']
+    customText=request.POST['customText']
+    clean_text=clean_article(customText)
+    #print article_html has trouble printing ascii character
+    article_in_array=[clean_text]
+    sentiment={'sentiment':sentiment_analysis(article_in_array)}
+    result=json.dumps(sentiment)
+    #sentiment="test sentiment result"
+    return JsonResponse(result,safe=False)
 '''
 def index(request):
     return render(request,'stockSite/index.html')

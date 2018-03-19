@@ -1,0 +1,51 @@
+2018-03-18 22:36:43 [scrapy.core.scraper] ERROR: Spider error processing <GET https://www.cnbc.com/2018/03/16/top-vc-deals-apple-texture-magna-lyft-ofo-gv-zum-snoop-dogg.html> (referer: https://search.cnbc.com/rs/search/view.html?source=CNBC.com&categories=exclude&partnerId=2000&pubtime=0&keywords=Apple%20)
+Traceback (most recent call last):
+  File "c:\users\owner\documents\codingdojo\python\django\django-venv\lib\site-packages\scrapy\utils\defer.py", line 102, in iter_errback
+    yield next(it)
+  File "c:\users\owner\documents\codingdojo\python\django\django-venv\lib\site-packages\scrapy\spidermiddlewares\offsite.py", line 29, in process_spider_output
+    for x in result:
+  File "c:\users\owner\documents\codingdojo\python\django\django-venv\lib\site-packages\scrapy\spidermiddlewares\referer.py", line 339, in <genexpr>
+    return (_set_referer(r) for r in result or ())
+  File "c:\users\owner\documents\codingdojo\python\django\django-venv\lib\site-packages\scrapy\spidermiddlewares\urllength.py", line 37, in <genexpr>
+    return (r for r in result or () if _filter(r))
+  File "c:\users\owner\documents\codingdojo\python\django\django-venv\lib\site-packages\scrapy\spidermiddlewares\depth.py", line 58, in <genexpr>
+    return (r for r in result or () if _filter(r))
+  File "stockBot\spiders\cnbcSpiderWeb.py", line 108, in parse_article
+    clean_article_html=clean_article(article_html)
+  File "stockBot\spiders\sentiment_script.py", line 22, in clean_article
+    decoded_string=str(article_string).decode("utf-8","ignore") #typecase articlestring to avoid decoding floats
+UnicodeEncodeError: 'ascii' codec can't encode character u'\xe9' in position 368: ordinal not in range(128)
+2018-03-18 22:36:51 [scrapy.core.scraper] ERROR: Spider error processing <GET https://www.cnbc.com/2018/03/16/apple-will-have-a-march-27th-event-focused-on-education.html> (referer: https://search.cnbc.com/rs/search/view.html?source=CNBC.com&categories=exclude&partnerId=2000&pubtime=0&keywords=Apple%20)
+Traceback (most recent call last):
+  File "c:\users\owner\documents\codingdojo\python\django\django-venv\lib\site-packages\scrapy\utils\defer.py", line 102, in iter_errback
+    yield next(it)
+  File "c:\users\owner\documents\codingdojo\python\django\django-venv\lib\site-packages\scrapy\spidermiddlewares\offsite.py", line 29, in process_spider_output
+    for x in result:
+  File "c:\users\owner\documents\codingdojo\python\django\django-venv\lib\site-packages\scrapy\spidermiddlewares\referer.py", line 339, in <genexpr>
+    return (_set_referer(r) for r in result or ())
+  File "c:\users\owner\documents\codingdojo\python\django\django-venv\lib\site-packages\scrapy\spidermiddlewares\urllength.py", line 37, in <genexpr>
+    return (r for r in result or () if _filter(r))
+  File "c:\users\owner\documents\codingdojo\python\django\django-venv\lib\site-packages\scrapy\spidermiddlewares\depth.py", line 58, in <genexpr>
+    return (r for r in result or () if _filter(r))
+  File "stockBot\spiders\cnbcSpiderWeb.py", line 108, in parse_article
+    clean_article_html=clean_article(article_html)
+  File "stockBot\spiders\sentiment_script.py", line 22, in clean_article
+    decoded_string=str(article_string).decode("utf-8","ignore") #typecase articlestring to avoid decoding floats
+UnicodeEncodeError: 'ascii' codec can't encode character u'\u2014' in position 438: ordinal not in range(128)
+2018-03-18 22:36:51 [scrapy.core.scraper] ERROR: Spider error processing <GET https://www.cnbc.com/2018/03/15/centene-pharmacy-start-up-partnership-to-drive-better-care-at-lower-cost.html> (referer: https://search.cnbc.com/rs/search/view.html?source=CNBC.com&categories=exclude&partnerId=2000&pubtime=0&keywords=Apple%20)
+Traceback (most recent call last):
+  File "c:\users\owner\documents\codingdojo\python\django\django-venv\lib\site-packages\scrapy\utils\defer.py", line 102, in iter_errback
+    yield next(it)
+  File "c:\users\owner\documents\codingdojo\python\django\django-venv\lib\site-packages\scrapy\spidermiddlewares\offsite.py", line 29, in process_spider_output
+    for x in result:
+  File "c:\users\owner\documents\codingdojo\python\django\django-venv\lib\site-packages\scrapy\spidermiddlewares\referer.py", line 339, in <genexpr>
+    return (_set_referer(r) for r in result or ())
+  File "c:\users\owner\documents\codingdojo\python\django\django-venv\lib\site-packages\scrapy\spidermiddlewares\urllength.py", line 37, in <genexpr>
+    return (r for r in result or () if _filter(r))
+  File "c:\users\owner\documents\codingdojo\python\django\django-venv\lib\site-packages\scrapy\spidermiddlewares\depth.py", line 58, in <genexpr>
+    return (r for r in result or () if _filter(r))
+  File "stockBot\spiders\cnbcSpiderWeb.py", line 108, in parse_article
+    clean_article_html=clean_article(article_html)
+  File "stockBot\spiders\sentiment_script.py", line 22, in clean_article
+    decoded_string=str(article_string).decode("utf-8","ignore") #typecase articlestring to avoid decoding floats
+UnicodeEncodeError: 'ascii' codec can't encode character u'\u2014' in position 1212: ordinal not in range(128)

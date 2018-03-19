@@ -15,3 +15,5 @@ stockBot/spiders/__init__.py
 stockBot/spiders/bloomberg.py
 stockBot/spiders/cnbc.py
 stockBot/spiders/cnbcSpiderWeb.py
+stockBot/spiders/sentiment_script.py
+stockBot/spiders/sentiment_script_bloomberg.py

@@ -26,17 +26,20 @@
           console.log("bbSpider crawl finished")
           jResponse=JSON.parse(serverResponse)
           console.log(jResponse)
-
-          var htmlString="<table><thead><tr><th>Headline</th><th>Post Date</th><th>Link</th></tr></thead><tbody>"
+          if (jResponse.length<1){htmlString="<p>Sorry no articles found by spider</p>"}
+          else{
+          var htmlString="<table><thead><tr><th>Headline</th><th>Post Date</th><th>Link</th><th>Sentiment</th></tr></thead><tbody>"
                   for (var i=0;i<jResponse.length;i++){
                       pDate=new Date(jResponse[i]['fields']['postDate'])
                       htmlString+="<tr>"
                           +"<td>"+ jResponse[i]['fields']['headline'] +"</td>"
                           +"<td>"+ pDate.toLocaleString()+"</td>"
-                          +"<td><a href=' "+ jResponse[i]['fields']['link']+"'>"+jResponse[i]['fields']['link'] +"</a></td>"
+                          +"<td><a href=' "+ jResponse[i]['fields']['link']+" '>"+"Go to article" +"</a></td>"
+                          +"<td>"+ jResponse[i]['fields']['sentiment'] +"</td>"
                         +"</tr>"
                       }
                       htmlString+="</tbody></table>"
+                    }
           $('#bbSpider').html(htmlString)
       }//end success
     }) //end ajax for bbSpider crawl
@@ -50,17 +53,20 @@
       console.log("cnbcSpider crawl finished")
       jResponse=JSON.parse(serverResponse)
       console.log(jResponse)
-
-      var htmlString="<table><thead><tr><th>Headline</th><th>Post Date</th><th>Link</th></tr></thead><tbody>"
+      if (jResponse.length<1){htmlString="<p>Sorry no articles found by spider</p>"}
+      else{
+      var htmlString="<table><thead><tr><th>Headline</th><th>Post Date</th><th>Link</th><th>Sentiment</th></tr></thead><tbody>"
             for (var i=0;i<jResponse.length;i++){
                 pDate=new Date(jResponse[i]['fields']['postDate'])
                 htmlString+="<tr>"
                       +"<td>"+ jResponse[i]['fields']['headline'] +"</td>"
                       +"<td>"+ pDate.toLocaleString()+"</td>"
-                      +"<td><a href=' "+ jResponse[i]['fields']['link']+"'>"+jResponse[i]['fields']['link'] +"</a></td>"
+                      +"<td><a href=' "+ jResponse[i]['fields']['link']+" '>"+"Go to article" +"</a></td>"
+                      +"<td>"+ jResponse[i]['fields']['sentiment'] +"</td>"
                     +"</tr>"
                   }
                   htmlString+="</tbody></table>"
+                }
       $('#cnbcSpider').html(htmlString)
   }//end success
 }) //end ajax for cnbcSpider crawl
@@ -83,6 +89,143 @@
 }
       })//end script
     </script>
+
+    <script type="text/javascript">
+      $(document).ready(
+        function(){
+          var timeArray=[]  //needed in several functions
+          var symbol="{{symbol}}"
+          console.log("doc ready")
+          var url_string="https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&outputsize=compact&apikey=TJ86LY8QFCFMQ44Z&datatype=json&interval=15min&symbol="
+          url_string=url_string+"{{symbol}}"
+            $.ajax({
+              url:url_string,
+              method:'get',
+              success:function(response){
+                //console.log(response);
+                console.log(response["Time Series (15min)"])
+
+                var priceArray=[]
+                var dataArray=[]
+                var datesObj=response["Time Series (15min)"]
+                //console.log(datesObj.length) //gives undefined
+                var index= 99 ;//why datesObj.length-1 doesnt work??
+                for (var key in datesObj){
+                  five_hours=3600*1000*5
+                  timeArray.unshift(key) //date in the format: 2018-03-06 10:45:00 , will convert ot UTC time with new Date function
+                //  dataArray.push([new Date(key).getTime()-five_hours,parseFloat(datesObj[key]["1. open"])])
+                  dataArray.unshift([index,parseFloat(datesObj[key]["1. open"])])
+                  index--
+                }
+                console.log(dataArray)
+                //https://stackoverflow.com/questions/7204232/flot-show-time-axis-without-gaps
+                markings=makeMarkings(timeArray)
+                var dataSet=[{label:"{{symbol}}",data:dataArray}]
+                var options={
+                  xaxis:{tickFormatter:function(val){return formTicks(val,timeArray)},
+                    ticks:20,
+                     tickDecimals:2,
+                     font:{size:12, family:'sans-serif',weight:'bold'}
+                  },
+                  yaxis:{
+                    font:{size:12, family:'sans-serif', weight:'bold'}
+                  },
+                  series:{points:{show:true}},
+                  grid:{ hoverable: true, clickable: true, autoHighlight: true, markings:markings },
+                   colors: ["#FF0000", "#0022FF"]
+                  }
+                $.plot($("#stockPlot"),dataSet,options);  //add options arg??
+              }
+            });
+
+            function formTicks(val, timeArray){
+              //val passed in is index from dataArray
+              five_hours=3600*1000*5
+              var tick=timeArray[val]
+              if ( tick != undefined ) {
+                  tick = new Date(tick)
+                  var month=tick.getMonth()+1,
+                      day=tick.getDate(),
+                      hours = tick.getHours(),
+                      minutes = tick.getMinutes();
+                      if (hours>12){hours=hours-12}
+                      if (minutes.toString().length==1){minutes=minutes.toString()+"0"}
+                      tick = month+"/"+day+' '+hours+':'+minutes;
+                    }
+              else { tick = '' }
+              return tick
+          }
+
+
+function makeMarkings(tickArray){
+          var markings=[]
+          firstDay=new Date(tickArray[0]).getDate()
+          for (var i=1;i<tickArray.length;i++){
+            var loopDay=new Date(tickArray[i]).getDate()
+            if(loopDay!=firstDay){
+              console.log("new day", loopDay )
+              var marking={color:'black',linewidth:1,xaxis:{from:i-1,to:i-1}} //markings will fall on 4pm
+              markings.push(marking)
+              firstDay=loopDay;
+            }
+          } //endfor
+          return markings
+}//end function makeMarkings
+
+var previousLabel=null,previousPoint=null;
+
+$("#stockPlot").bind("plotclick", function (event, pos, item) {
+  console.log(this)
+      console.log(event)
+      console.log(item)
+        if (item) {
+            if ((previousLabel != item.series.label) || (previousPoint != item.dataIndex)) {
+                previousPoint = item.dataIndex;
+                previousLabel = item.series.label;
+                $("#tooltip").remove();
+
+                var x = timeArray[item.datapoint[0]];
+                var y = item.datapoint[1];
+                var date = new Date(x);
+                dateMonth=date.getMonth()+1
+                dateMonth=dateMonth.toString()
+                dateDay=date.getDate().toString()
+                dateHour=date.getHours().toString()
+                dateMinute=date.getMinutes().toString()
+                if (dateHour>12){dateHour=dateHour-12}
+                if (dateMinute.length==1){dateMinute=dateMinute+"0"}
+                dateString=dateMonth+"/"+dateDay+" "+dateHour+":"+dateMinute
+                var color = item.series.color;
+
+                showTooltip(item.pageX, item.pageY, color,
+                            "<strong>" + item.series.label + "</strong><br>"  +
+                            dateString+ //data in format MM-DD HH:MM
+                            " : <strong>" +"Value: $"+ y + "</strong>");
+            }
+        } else {
+            $("#tooltip").remove();
+            previousPoint = null;
+        }
+});
+
+function showTooltip(x, y, color, contents) {
+    $('<div id="tooltip">' + contents + '</div>').css({
+        position: 'absolute',
+        display: 'none',
+        top: y - 40,
+        left: x - 120,
+        border: '2px solid ' + color,
+        padding: '3px',
+        'font-size': '11px',
+        'border-radius': '5px',
+        'background-color': '#fff',
+        'font-family': 'Verdana, Arial, Helvetica, Tahoma, sans-serif',
+        opacity: 0.9
+    }).appendTo("body").fadeIn(200);
+}
+
+        } )// end script
+    </script>
   </head>
   <body>
     <div id="wrapper">
@@ -92,6 +235,7 @@
     <div class="spiderTable" id="bbSpider">Crawling ...</div>
     <h3>CNBC Spider</h3>
     <div class="spiderTable" id="cnbcSpider">Crawling...</div>
+    <div id="stockPlot" style="width:900px; height:700px; border:1px solid black; margin:auto; margin-top:8px;"></div>
 
 </div>
 

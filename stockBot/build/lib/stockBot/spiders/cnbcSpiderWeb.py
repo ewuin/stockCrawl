@@ -7,6 +7,10 @@ import uuid
 from bs4 import BeautifulSoup as bsObj
 from scrapy.crawler import CrawlerProcess
 from scrapy.utils.project import get_project_settings
+#below are for sentiment analysis
+from .sentiment_script import clean_article
+from .sentiment_script import sentiment_analysis
+
 
 
 class cnbcSpiderWeb(scrapy.Spider):
@@ -89,8 +93,8 @@ class cnbcSpiderWeb(scrapy.Spider):
         #article_type=response.meta['article_type']
         article_html=response.css('div.story').extract()
 
-
         if len(article_html)<1:
+            print "using get paragraphs function"
             article_html=bsObj(self.get_paragraphs(response),"html.parser").get_text()
             article_html=re.sub(r"^\s+", "", article_html, flags = re.MULTILINE)
             #stripped_content = ''.join(line.lstrip(' \t') for line in content.splitlines(True))
@@ -99,8 +103,13 @@ class cnbcSpiderWeb(scrapy.Spider):
             article_html=re.sub(r"^\s+", " ", article_html, flags = re.MULTILINE)
             #article_html = ''.join(line.lstrip(' \t') for line in article_html.splitlines(True))
         #send this stock bot item to the database
-
-        yield cnbcStockbotItem(unique_id=self.unique_id,headline=headline,postDate=postDate,link=link,articleHTML=article_html,stockTicker=self.stockTicker)
+        print "CLEANING ARTICLE"
+        article_html=u" ".join([i for i in article_html.lower().split()])
+        clean_article_html=clean_article(article_html)
+        article_in_array=[clean_article_html]
+        sentiment=sentiment_analysis(article_in_array)
+        print sentiment
+        yield cnbcStockbotItem(unique_id=self.unique_id,headline=headline,postDate=postDate,link=link,articleHTML=clean_article_html,stockTicker=self.stockTicker, sentiment=sentiment)
 
 
     def get_paragraphs(self,response_item):  #gets all <p> elements

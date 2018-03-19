@@ -43,4 +43,5 @@ print np.mean(predicted2 == test_labels)
 
 from sklearn import metrics
 print(metrics.classification_report(test_labels, predicted, target_names=["bad","neutral","good"]))
-print(metrics.classification_report(test_labels, predicted2, target_names=str(test_labels)))
+print(metrics.classification_report(test_labels, predicted2, target_names=["bad","neutral","good"]))
+#print(metrics.classification_report(test_labels, predicted2, target_names=str(test_labels)))

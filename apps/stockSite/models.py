@@ -39,6 +39,7 @@ class cnbcStockSearch(models.Model):
     link=models.URLField()
     articleHTML=models.TextField(default="html should be here")
     stockTicker=models.TextField(max_length=5, default="XXXX")
+    sentiment=models.TextField(max_length=20,default="unknown")
 # This is for basic and custom serialisation to return it to client as a JSON.
     @property
     def to_dict(self):
@@ -61,6 +62,7 @@ class bloombergStockSearch(models.Model):
     link=models.URLField()
     articleHTML=models.TextField(default="html should be here")
     stockTicker=models.TextField(max_length=5, default="XXXX")
+    sentiment=models.TextField(max_length=20,default="unknown")
 # This is for basic and custom serialisation to return it to client as a JSON.
     @property
     def to_dict(self):
