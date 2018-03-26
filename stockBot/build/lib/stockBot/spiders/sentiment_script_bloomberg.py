@@ -44,12 +44,14 @@ def clean_article(article_string):
 
 def sentiment_analysis(articleHTML):
     print "articleHTML  type: ",type(articleHTML)
-    with open('C:\Users\Owner\Documents\pickledModel_MNB.pkl','rb') as fin:  #only was able to open with explicit path
+    with open('C:\Users\Owner\Documents\pickledModel_MNB_three_cat.pkl','rb') as fin:  #only was able to open with explicit path
         vectorizer, model1 = pickle.load(fin)
     X_new=vectorizer.transform(articleHTML)
     result1=model1.predict(X_new)
     print result1
     if result1[0]==1:
         return "Bullish"
+    if result1[0]==-1:
+        return "Bearish"
     else:
-        return "Neutral/Bearish"
+        return "Neutral"

@@ -12,7 +12,7 @@ from sklearn.externals import joblib
 
 import pandas as pd
 
-datafile="final_clean_data_set_two_category.csv"
+datafile="final_clean_data_set_three_category.csv"
 corpus_data=pd.read_csv(datafile)
 #from
 #https://appliedmachinelearning.wordpress.com/2017/02/12/sentiment-analysis-using-tf-idf-weighting-pythonscikit-learn/
@@ -28,8 +28,8 @@ use 3 x 3 matric if three categories (bull/bear/neutral)
 
 totalsvm = 0           # Accuracy measure on 2000 files
 totalNB = 0
-totalMatSvm = np.zeros((2,2));  # Confusion matrix on 2000 files
-totalMatNB = np.zeros((2,2));
+totalMatSvm = np.zeros((3,3));  # Confusion matrix on 2000 files
+totalMatNB = np.zeros((3,3));
 
 corpus=corpus_data['articleHTML'].values.tolist()
 labels=corpus_data['labels'].values.tolist()
@@ -85,11 +85,11 @@ print totalMatNB, totalNB/1550.0
 
 #model 1 is LinearSVC   model 2 is MultinomialNB
 
-#with open('pickledModel_one.pkl','wb') as fout:        #the vectorizer must also be pickled for text analysis cases
-#    pickle.dump((vectorizer,model1),fout)
+with open('pickledModel_SVC_three_cat.pkl','wb') as fout:        #the vectorizer must also be pickled for text analysis cases
+    pickle.dump((vectorizer,model1),fout)
 
-#with open('pickledModel_two.pkl','wb') as fout:
-#    pickle.dump((vectorizer,model2),fout)
+with open('pickledModel_MNB_three_cat.pkl','wb') as fout:
+    pickle.dump((vectorizer,model2),fout)
 
-#joblib.dump(model1,'linSVC.pkl')
-#joblib.dump(model2,'mnBayes.pkl')
+#joblib.dump(model1,'linSVC_smaller_bull.pkl')
+#joblib.dump(model2,'mnBayes_smaller_bull.pkl')

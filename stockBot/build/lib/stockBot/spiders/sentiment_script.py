@@ -19,8 +19,7 @@ def clean_article(article_string):
     var_remover=re.compile(r'var')
     show_chapter_remover=re.compile(r'^show chapter')
 
-    decoded_string=str(article_string).decode("utf-8","ignore") #typecase articlestring to avoid decoding floats
-    ascii_string=decoded_string.encode("ascii","replace")  #done to avoid error in lemmatizer, which failed to convert something to ascii
+    ascii_string=article_string.encode("ascii","replace")  #done to avoid error in lemmatizer, which failed to convert something to ascii
     stop_word_free  =" ".join([i for i in ascii_string.lower().split() if i not in stop])  #remove stop words
     p_free  = "".join(ch for ch in stop_word_free if ch not in exclude)           #remove punctuation, note that there is no space between the quotes
     lemm    = " ".join(lemma.lemmatize(word) for word in p_free.split())    #lemmatize words
@@ -40,16 +39,19 @@ def clean_article(article_string):
         final_words=""
         for word in temp_words:
             final_words=final_words+word+" "
+    print final_words
     return final_words
 
 def sentiment_analysis(articleHTML):
     print "articleHTML  type: ",type(articleHTML)
-    with open('C:\Users\Owner\Documents\pickledModel_MNB.pkl','rb') as fin:  #only was able to open with explicit path
+    with open('C:\Users\Owner\Documents\pickledModel_MNB_three_cat.pkl','rb') as fin:  #only was able to open with explicit path
         vectorizer, model1 = pickle.load(fin)
     X_new=vectorizer.transform(articleHTML)
     result1=model1.predict(X_new)
     print result1
     if result1[0]==1:
         return "Bullish"
+    if result1[0]==-1:
+        return "Bearish"
     else:
-        return "Neutral/Bearish"
+        return "Neutral"

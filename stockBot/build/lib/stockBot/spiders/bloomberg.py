@@ -84,6 +84,7 @@ class bbSpider(scrapy.Spider):
         yield bloombergStockbotItem(unique_id=self.unique_id,headline=headline,postDate=postDate,link=link,articleHTML=clean_article_html,stockTicker=self.stockTicker,sentiment=sentiment)
 
     def parse3(self, response):
+        blank_string_start=re.compile(r'^\s')
         for quote in response.css('div.search-result'):
             d={
                 'headline': quote.css('h1.search-result-story__headline').xpath('.//a/text()').extract(),
@@ -94,21 +95,21 @@ class bbSpider(scrapy.Spider):
             article_type=str(d['article_type'][0])  #article link will include words video audio or article to inidcate content type
             #next_page_link=quote.css('div.content-page-links').xpath(.//a/@href)
 
-# formatting headline: still has bugs
+# formatting headline: improved version. bloombergs html formats the stock name if in the headline that is not extracted above, leaves white space
             if len(d['headline'])>1:
-                #print "need to conc headline"
+                print d['headline']
+                print "need to conc headline"
                 new_h=""
                 for h in d['headline']:
-                    #print h
-                    try:
+                    if re.match(blank_string_start,h):
+                        print "blank space regex"
+                        h=str(self.stock).title()+h
+                        new_h+=h
+                    else:
                         new_h+=str(h)
-                    except:
-                        new_h+=" "
-                    if d['headline'].index(h)<len(d)-2:
-                        new_h+=str(self.stock).title()
                 d['headline']=new_h
             else:
-                d['headline']=d['headline'][0]
+                d['headline']= d['headline'][0]
             if d['headline'][0]==" ":
                 d['headline']=str(self.stock).title()+d['headline']
             formatted_date=d['post-date'][0]

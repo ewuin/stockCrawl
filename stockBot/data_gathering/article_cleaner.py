@@ -22,11 +22,20 @@ var_remover=re.compile(r'var')
 show_chapter_remover=re.compile(r'^show chapter')
 
 def clean_article(article_string):
-        decoded_string=str(article_string).decode("utf-8","ignore") #typecase articlestring to avoid decoding floats
-        ascii_string=decoded_string.encode("ascii","replace")  #done to avoid error in lemmatizer, which failed to convert something to ascii
-        stop_word_free  =" ".join([i for i in ascii_string.lower().split() if i not in stop])  #remove stop words
-        p_free  = "".join(ch for ch in stop_word_free if ch not in exclude)           #remove punctuation, note that there is no space between the quotes
-        lemm    = " ".join(lemma.lemmatize(word) for word in p_free.split())    #lemmatize words
+        try:
+            p_free  = "".join(ch for ch in article_string if ch not in exclude)           #remove punctuation, note that there is no space between the quotes
+        except:
+            print "possible empty article"
+            print article_string
+            return " "
+        stop_word_free  =" ".join([i for i in p_free.lower().split() if i not in stop])  #remove stop words
+        lemm=""
+#        for word in stop_word_free.split():
+#            try:
+#                lemm=lemm+" "+word.decode('utf-8')
+#            except:
+#                print "word crash for: ", word
+        lemm    = " ".join(lemma.lemmatize(word.decode('utf-8')) for word in stop_word_free.split())    #lemmatize words
         pre_final_words   = lemm.split()
         final_words=''   #alternatively final_words=[] if list of comma-separated words needed
         for word in pre_final_words:
@@ -46,9 +55,9 @@ def clean_article(article_string):
         return final_words
 
 def label_price_move(daily_change):
-    if daily_change>0.0029:
+    if daily_change>0.0029:    # old value:0.0029
         return 1#"bull"
-    if daily_change<-0.00462:
+    if daily_change<-0.00662:  #old value -0.00462
         return -1#"bear"
     else:
         return 0#"neutral"
@@ -92,7 +101,7 @@ stock_array=[
         {'name':'alexion', 'symbol':'ALXN'},
         {'name':'dell', 'symbol':'DVMT'},
         {'name':'micron', 'symbol':'MU'},
-        {'name':'servicenow', 'symbol':'NOW'},
+        #{'name':'servicenow', 'symbol':'NOW'}, No articles
         {'name':'zayo', 'symbol':'ZAYO'},
         {'name':'aetna', 'symbol':'AET'},
         {'name':'ally financial', 'symbol':'ALLY'},
@@ -110,6 +119,8 @@ final_data_frame=pd.DataFrame(columns=columns)
 for stock in stock_array:
     file_name=datafolder+stock['symbol']+'_articles_and_prices.csv'
     unclean_data=pd.read_csv(file_name)
+    print  "CLEANING: ",stock
+    print unclean_data['articleHTML'].count()
     unclean_data['articleHTML']=unclean_data['articleHTML'].apply(clean_article)
     unclean_data['labels']=unclean_data['daily_change'].apply(label_price_move)
     #print unclean_data.head()
@@ -119,8 +130,8 @@ for stock in stock_array:
     final_data_frame=pd.concat([final_data_frame,data_to_append])
     print final_data_frame.head()
 
+#new_file_name="final_clean_data_set_three_category.csv"
 new_file_name="final_clean_data_set_three_category.csv"
-
 #final_data_frame.reset_index(inplace=True)
 #final_data_frame.drop(index=1474) #dropping rows to get exactly 1550 rows
 #final_data_frame.reset_index(inplace=True)
