@@ -28,14 +28,13 @@
           console.log(jResponse)
           if (jResponse.length<1){htmlString="<p>Sorry no articles found by spider</p>"}
           else{
-          var htmlString="<table><thead><tr><th>Headline</th><th>Post Date</th><th>Link</th><th>Sentiment</th></tr></thead><tbody>"
+          var htmlString="<table><thead><tr><th>Headline</th><th>Post Date</th><th>Sentiment</th></tr></thead><tbody>"
                   for (var i=0;i<jResponse.length;i++){
                       pDate=new Date(jResponse[i]['fields']['postDate'])
                       htmlString+="<tr>"
-                          +"<td>"+ jResponse[i]['fields']['headline'] +"</td>"
-                          +"<td>"+ pDate.toLocaleString()+"</td>"
-                          +"<td><a href=' "+ jResponse[i]['fields']['link']+" '>"+"Go to article" +"</a></td>"
-                          +"<td>"+ jResponse[i]['fields']['sentiment'] +"</td>"
+                          +"<td class='headline-cell'><a href=' "+jResponse[i]['fields']['link']+"'>" + jResponse[i]['fields']['headline'] +"</a></td>"
+                          +"<td class='date-cell'>"+ pDate.toLocaleString()+"</td>"
+                          +"<td class='sentiment-cell  "+jResponse[i]['fields']['sentiment']+"'>"+ jResponse[i]['fields']['sentiment'] +"</td>"
                         +"</tr>"
                       }
                       htmlString+="</tbody></table>"
@@ -55,14 +54,13 @@
       console.log(jResponse)
       if (jResponse.length<1){htmlString="<p>Sorry no articles found by spider</p>"}
       else{
-      var htmlString="<table><thead><tr><th>Headline</th><th>Post Date</th><th>Link</th><th>Sentiment</th></tr></thead><tbody>"
+      var htmlString="<table><thead><tr><th>Headline</th><th>Post Date</th><th>Sentiment</th></tr></thead><tbody>"
             for (var i=0;i<jResponse.length;i++){
                 pDate=new Date(jResponse[i]['fields']['postDate'])
                 htmlString+="<tr>"
-                      +"<td>"+ jResponse[i]['fields']['headline'] +"</td>"
-                      +"<td>"+ pDate.toLocaleString()+"</td>"
-                      +"<td><a href=' "+ jResponse[i]['fields']['link']+" '>"+"Go to article" +"</a></td>"
-                      +"<td>"+ jResponse[i]['fields']['sentiment'] +"</td>"
+                      +"<td class='headline-cell'><a href=' "+jResponse[i]['fields']['link']+"'>" + jResponse[i]['fields']['headline'] +"</a></td>"
+                      +"<td class='date-cell'>"+ pDate.toLocaleString()+"</td>"
+                      +"<td class= 'sentiment-cell  "+jResponse[i]['fields']['sentiment']+" '>"+ jResponse[i]['fields']['sentiment'] +"</td>"
                     +"</tr>"
                   }
                   htmlString+="</tbody></table>"

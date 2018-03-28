@@ -1,4 +1,4 @@
-2018-03-26 14:45:27 [scrapy.core.scraper] ERROR: Spider error processing <GET https://www.bloomberg.com/search?query=T-Mobile%20US%20> (referer: None)
+2018-03-28 13:22:48 [scrapy.core.scraper] ERROR: Spider error processing <GET https://www.bloomberg.com/search?query=Amazon%20> (referer: None)
 Traceback (most recent call last):
   File "c:\users\owner\documents\codingdojo\python\django\django-venv\lib\site-packages\scrapy\utils\defer.py", line 102, in iter_errback
     yield next(it)
@@ -12,4 +12,4 @@ Traceback (most recent call last):
     return (r for r in result or () if _filter(r))
   File "stockBot\spiders\bloomberg.py", line 109, in parse3
     new_h+=str(h)
-UnicodeEncodeError: 'ascii' codec can't encode character u'\u2018' in position 0: ordinal not in range(128)
+UnicodeEncodeError: 'ascii' codec can't encode character u'\u2019' in position 5: ordinal not in range(128)
