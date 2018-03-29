@@ -23,25 +23,25 @@ public version on amazon aws.
 You can however see screen captures of the site running from my local machine at the IP address: http://18.188.177.97/
 
 The packages necessary to run are:
-django
-django-autocomplete-light
-requests
-uuid
-scrapy
-scrapyd (for scrapyd_api)
-python-scrapyd-api
+django,
+django-autocomplete-light,
+requests,
+uuid,
+scrapy,
+scrapyd (for scrapyd_api),
+python-scrapyd-api,
 
-scrapy_djangoitem
-bs4
-scrapyd-client
-nltk
+scrapy_djangoitem,
+bs4,
+scrapyd-client,
+nltk,
 (after installing nltk, enter python shell,
 >>import nltk
 >>nltk.download('stopwords')
 >>nltk.download('wordnet')
-)
-pandas
-numpy
-selenium
-scipy(if errors, use << pip --no-cache-dir install scipy >> to avoid memory error)
-scikit-learn
+),
+pandas,
+numpy,
+selenium,
+scipy(if errors, use << pip --no-cache-dir install scipy >> to avoid memory error),
+scikit-learn,
