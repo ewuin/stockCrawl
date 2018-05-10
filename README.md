@@ -1,11 +1,10 @@
 # stockCrawl
 
-see screen-caps at: http://18.188.177.97/
+demo at: http://18.188.177.97/
 
-This is a website developed with django. The main purpose is to allow users to crawl financial news websites for news about
-an individual security. When a user submits a search, the views.py file calls scrapy spiders to search the external sites,
-which also gather the contents of the news articles, and then perform sentiment analysis on each article, labeling each article as
-bullish, bearish, or neutral. The server returns the information to the client which sees the results in a table.
+(the demo was launched after rewriting the web crawlers using beautifulsoup4 (bs4) instead of scrapy which I was having trouble deploying to aws. Thus I dubbed the new version stockSoup and the repo is at github.com/ewuin/stockSoup. It has the same functionality and uses the same machine learning and data files I compiled with the previous version. )
+
+This is an experimental  web app developed with django. The main purpose is to allow users to crawl financial news websites for news about an individual security such as apple or amazon. When a user submits a search, the views.py file calls scrapy spiders to search the external sites, which also gather the contents of the news articles, and then perform sentiment analysis on each article, labeling each article as bullish, bearish, or neutral. The server returns the information to the client which displays the results in a table.
 
 The gathering of data for the sentiment analysis (multinomial naive-bayes machine learning algorithm) was done using spiders that
 crawled for articles dating back to July 2017 for about 40 stocks. Daily price changes for these stocks were also compiled
@@ -16,11 +15,7 @@ are compared to in order to categorize those articles.
 The scrapy spiders are found in the subdirectory "stockBot." This subdirectory also contains the folder data_gathering which has the files
 I used to develop the machine learning model.
 
-The website is in the conventional "apps" subdirectory.
-
-Due to the fact that this site needs a scrapyd server alongside the django server, I am still in the process of deploying a live
-public version on amazon aws.
-You can however see screen captures of the site running from my local machine at the IP address: http://18.188.177.97/
+The html is in the standard "apps" subdirectory.
 
 The packages necessary to run are:
 django,
